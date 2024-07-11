@@ -13,7 +13,6 @@ env:
   GH_REPO: ${{ github.repository }}
   NUMBER: ${{ github.event.pull_request.number }}
   AUTHOR: ${{ github.event.pull_request.user.login }}
-  USER: ${{ github.actor }}
 
 jobs:
   # check if PRs updating the CLA are targetting the tiddlywiki-com branch
@@ -26,7 +25,7 @@ jobs:
     - run: |
         if ! $BRANCH == "tiddlywiki-com"; then
           echo "This CLA signature targets the wrong branch"
-          gh pr comment "$NUMBER" -b "@$USER Signatures to the CLA must target the 'tiddlywiki-com' branch."
+          gh pr comment "$NUMBER" -b "@$AUTHOR Signatures to the CLA must target the 'tiddlywiki-com' branch."
         fi
       env:
         BRANCH: ${{ github.event.pull_request.base.ref }}
