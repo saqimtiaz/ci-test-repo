@@ -12,6 +12,7 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GH_REPO: ${{ github.repository }}
   NUMBER: ${{ github.event.pull_request.number }}
+  AUTHOR: ${{ github.event.pull_request.user.login }}
   USER: ${{ github.actor }}
 
 jobs:
@@ -69,5 +70,4 @@ jobs:
           #echo $number
           gh pr comment "$number" -b "**$AUTHOR** has signed the Contributor License Agreement (see [contributing.md](https://github.com/Jermolene/TiddlyWiki5/blob/master/contributing.md))"
         done     
-    env:
-      AUTHOR: ${{ context.payload.pull_request.user.login }}
+
