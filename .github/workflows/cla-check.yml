@@ -4,10 +4,6 @@ on:
     types:
       - opened
       - reopened
-    branches:
-      - master
-      - tiddlywiki-com
-      - '**'
     paths-ignore:
       - 'licenses/cla-individual.md'
 jobs:
