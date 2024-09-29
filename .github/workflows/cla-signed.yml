@@ -17,7 +17,7 @@ env:
 jobs:
   # check if PRs updating the CLA are targetting the tiddlywiki-com branch
   check-signature-branch:
-    if: (github.event.pull_request.merged != true) && (github.event.pull_request.user.login != github.repository_owner)
+    if: (github.event.pull_request.merged != true)
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
